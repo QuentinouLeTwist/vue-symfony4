@@ -9,6 +9,10 @@
 !/api/var/jwt/private-test.pem
 !/api/var/jwt/public-test.pem
 
+###> docker/config ###
+/api/docker/.env
+###< docker/config ###
+
 ###> symfony/webpack-encore-pack ###
 /ui/node_modules/
 ui/public/build/
@@ -17,3 +21,7 @@ ui/public/build/
 ###> symfony/web-server-bundle ###
 .web-server-pid
 ###< symfony/web-server-bundle ###
+
+###> IDE ###
+.idea/
+###< IDE ###
