@@ -13,10 +13,10 @@
 /api/docker/.env
 ###< docker/config ###
 
-###> symfony/webpack-encore-pack ###
-/ui/node_modules/
-ui/public/build/
-###< symfony/webpack-encore-pack ###
+###> angular-cli ###
+/ui-platform/node_modules/
+/ui-platform/e2e/
+###< angular-cli ###
 
 ###> symfony/web-server-bundle ###
 .web-server-pid
