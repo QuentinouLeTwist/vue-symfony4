@@ -4,9 +4,11 @@ What about humanize your site ? By humanize, I mean getting rid of FAQ and start
 
 When you start around this kind of features, you think it's kinda easy because, between us, that's just a chat, isn't it?
 
-Well, that's quite true. Yes, if by making a chat you are asking to have an HTML input field and a div content to show messages, yes, indeed, this is easy. However, it has a cost and in most of the cases, this might be really expensive.
+Well, that's quite true. Yes, if by making a chat you are asking to have an HTML input field and a div content to show messages, yes, indeed, this is easy.
 
 But are you, you and/or your client, only expecting that? 
+
+However, requesting a strong and wide solution has a cost and in most of the cases, this might be really expensive.
 
 The purpose of this project is providing a multi-solutions dashboard and it starts where setting up a chat is easy and where the integration's cost is close to 0$. Definitely free from my part. =)
 

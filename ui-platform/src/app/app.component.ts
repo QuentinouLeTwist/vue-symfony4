@@ -1,8 +1,8 @@
 import { Component, Input } from '@angular/core';
-import { User } from '../core/user/user';
-import { UserCredential } from '../core/auth/user/user-credential';
-import { ApiService } from '../core/api/api.service';
-import { UserService } from '../core/user/user.service'
+import { User } from '../common/user/user';
+import { UserCredential } from '../common/auth/user/user-credential';
+import { ApiService } from '../common/api/api.service';
+import { UserService } from '../common/user/user.service'
 
 @Component({
   selector: 'app-root',
