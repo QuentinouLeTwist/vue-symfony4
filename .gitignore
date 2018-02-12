@@ -9,11 +9,19 @@
 !/api/var/jwt/private-test.pem
 !/api/var/jwt/public-test.pem
 
-###> symfony/webpack-encore-pack ###
-/ui/node_modules/
-ui/public/build/
-###< symfony/webpack-encore-pack ###
+###> docker/config ###
+/api/docker/.env
+###< docker/config ###
+
+###> angular-cli ###
+/ui-platform/node_modules/
+/ui-platform/e2e/
+###< angular-cli ###
 
 ###> symfony/web-server-bundle ###
 .web-server-pid
 ###< symfony/web-server-bundle ###
+
+###> IDE ###
+.idea/
+###< IDE ###

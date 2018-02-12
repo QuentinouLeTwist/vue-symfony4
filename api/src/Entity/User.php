@@ -5,10 +5,13 @@ namespace App\Entity;
 use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
- * @ApiResource()
+ * @ApiResource(attributes={
+ *     "normalization_context"={"groups"={"user"}}
+ * })
  */
 class User implements UserInterface, \Serializable
 {
@@ -16,11 +19,13 @@ class User implements UserInterface, \Serializable
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups({"user"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=25, unique=true)
+     * @Groups({"user"})
      */
     private $username;
 
