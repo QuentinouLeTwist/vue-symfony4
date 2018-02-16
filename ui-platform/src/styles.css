@@ -1,2 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+
+.btn-blue {
+    @apply .bg-blue .text-white .font-bold .py-2 .px-4 .border-b-4 .border-blue-dark .rounded
+}
+
+.btn-blue:hover {
+    @apply .bg-blue-light .border-blue
+}
+
+@tailwind preflight;
+@tailwind utilities;
+
+
+button:focus, input:focus {
+    outline: none !important;
+}

@@ -1,3 +1,76 @@
-<p>
-  user-list works!
-</p>
+<div fxLayout="row">
+  <div fxFlex="10"></div>
+  <div fxFlex="80">
+    <mat-toolbar color="primary">
+      <mat-toolbar-row fxLayout="row">
+        <div fxFlex="60" fxLayoutAlign="start center">
+          <div class="relative mr-6 my-2">
+            <input type="search" class="bg-transparent ou text-white shadow rounded border-0 p-3" placeholder="Search by name...">
+            <div class="absolute pin-r pin-t mt-3 mr-4 text-white">
+              <mat-icon>search</mat-icon>
+            </div>
+          </div>
+        </div>
+        <div fxFlex="40" fxLayoutAlign="end center">
+          <button mat-icon-button><mat-icon>add_circle</mat-icon></button>
+        </div>
+      </mat-toolbar-row>
+    </mat-toolbar>
+  </div>
+  <div fxFlex="10"></div>
+</div>
+<div fxLayout="row">
+  <div fxFlex="10"></div>
+  <div fxFlex="80">
+    <div class="example-container mat-elevation-z8">
+      <table class="bg-grey-lightest text-grey-darkest font-semibold border border-grey-light rounded shadow w-full">
+        <tr class="h-10">
+          <td class="font-normal">Name</td>
+          <td class="font-normal">Email</td>
+          <td></td>
+        </tr>
+        <tr class="h-10 bg-white">
+          <td class="border-0">test 1</td>
+          <td class="border-0">test1@gmail.com</td>
+          <td class="border-0">
+            <button mat-icon-button><mat-icon>create</mat-icon></button>
+          </td>
+        </tr>
+        <tr class="h-10 border-grey">
+          <td>test 2</td>
+          <td>test2@gmail.com</td>
+          <td>
+            <button mat-icon-button><mat-icon>create</mat-icon></button>
+          </td>
+        </tr>
+        <tr class="h-10 bg-white border-0">
+          <td>test 3</td>
+          <td>test3@gmail.com</td>
+          <td>
+            <button mat-icon-button><mat-icon>create</mat-icon></button>
+          </td>
+        </tr>
+        <tr class="h-10 border-0">
+          <td>test 4</td>
+          <td>test4@gmail.com</td>
+          <td>
+            <button mat-icon-button><mat-icon>create</mat-icon></button>
+          </td>
+        </tr>
+        <tr class="h-10 border-t-2 border-grey bg-white">
+          <td>test 5</td>
+          <td>test5@gmail.com</td>
+          <td>
+            <button mat-icon-button><mat-icon>create</mat-icon></button>
+          </td>
+        </tr>
+      </table>
+      <mat-paginator #paginator
+                     [pageSize]="5"
+                     [pageSizeOptions]="[5, 10, 20]"
+                     [showFirstLastButtons]="true">
+      </mat-paginator>
+    </div>
+  </div>
+  <div fxFlex="10"></div>
+</div>

@@ -1,0 +1,15 @@
+mat-form-field#search {
+    width: 100%;
+}
+mat-label, mat-placeholder {
+    color: white !important;
+}
+
+.mat-input-underline, .mat-form-field-underline {
+    display: none !important;
+}
+
+button:hover {
+    color: #e91e63;
+    outline: none;
+}
