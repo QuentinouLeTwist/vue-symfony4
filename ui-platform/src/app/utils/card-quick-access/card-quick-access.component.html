@@ -1,0 +1,15 @@
+<mat-card class="quick-access-card">
+  <mat-card-header>
+    <div mat-card-avatar ngClass="header-{{ cssClassAvatar }}"></div>
+    <mat-card-title>{{ title }}</mat-card-title>
+    <mat-card-subtitle>Quick Access</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p>
+      {{ description }}
+    </p>
+  </mat-card-content>
+  <mat-card-actions fxLayoutAlign="end center">
+    <button mat-button color="primary" (click)="onClick()">{{ buttonText }}</button>
+  </mat-card-actions>
+</mat-card>

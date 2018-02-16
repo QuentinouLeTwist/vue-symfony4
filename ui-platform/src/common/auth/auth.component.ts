@@ -1,7 +1,9 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core'
 import { AuthService } from './auth.service';
-import { UserCredential } from './user/user-credential';
-import { ApiService } from '../api/api.service';
+import { UserCredential } from './credential/user-credential';
+import {AuthenticationEventEmitter} from "./event/authentication-event-emitter.service";
+import {AuthenticationEvent} from "./event/authentication-event";
+import TokenSessionStorage from "./token/token-session-storage";
 
 @Component({
   selector: 'app-auth',
@@ -12,19 +14,16 @@ import { ApiService } from '../api/api.service';
       </app-auth-login>
   `,
 })
-export class AuthComponent implements OnInit {
+export class AuthComponent {
   credential: UserCredential;
   @Output() onAuthentication = new EventEmitter<string>();
 
   constructor(public authService: AuthService) {
-      this.credential = new UserCredential();
+    this.credential = new UserCredential();
   }
 
-  async onLogin() {
-    this.onAuthentication.emit(await this.authService.login(this.credential));
+  onLogin() {
+    this.authService.login(this.credential);
   }
 
-  ngOnInit() {
-    // console.log('initialization...');
-  }
 }

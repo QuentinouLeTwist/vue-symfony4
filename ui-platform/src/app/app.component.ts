@@ -1,26 +1,48 @@
-import { Component, Input } from '@angular/core';
-import { User } from '../common/user/user';
-import { UserCredential } from '../common/auth/user/user-credential';
-import { ApiService } from '../common/api/api.service';
+import {Component, Input, OnInit} from '@angular/core';
+import { Router } from "@angular/router";
+
 import { UserService } from '../common/user/user.service'
+import { AuthenticationEventEmitter } from '../common/auth/event/authentication-event-emitter.service';
+import {AuthenticationEvent} from "../common/auth/event/authentication-event";
+import TokenSessionStorage from "../common/auth/token/token-session-storage";
+import {AuthService} from "../common/auth/auth.service";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  @Input() user: User;
-  title = 'app';
+export class AppComponent implements OnInit {
+  private appReady: boolean;
 
-  constructor(public api: ApiService, public userService: UserService) {
-    this.user = new User();
+  constructor(
+    private authService: AuthService,
+    private userService: UserService,
+    private router: Router
+  ) {
+    this.appReady = false;
   }
 
-  async onAuthentication(token: string) {
-    const user = await this.userService.fetchUser();
-    console.log(user);
-    this.user = user;
-    this.user.token = token;
+  isAppReady() {
+    return this.appReady;
+  }
+
+  ngOnInit(): void {
+    this.authService.autologin();
+
+    this.authService.eventEmitter.onAuthenticationSuccess$.subscribe(async () => {
+      await this.userService.fetchUserFromApi();
+      this.router.navigate(['/platform']);
+      this.OnReady();
+    });
+
+    this.authService.eventEmitter.onInvalidToken$.subscribe(() => {
+      this.router.navigate(['/login']);
+      this.OnReady();
+    });
+  }
+
+  private OnReady() {
+    this.appReady = true;
   }
 }

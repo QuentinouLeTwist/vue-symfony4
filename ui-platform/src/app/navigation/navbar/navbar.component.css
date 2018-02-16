@@ -1,0 +1,21 @@
+button {
+    font-weight: bold;
+    font-family: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    font-size: 15px;
+}
+
+button .mat-button .mat-icon,
+button .mat-icon-button .mat-icon,
+.mat-icon-button {
+    line-height: 20px;
+}
+
+.title, .username {
+    font-weight: bold;
+    font-family: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}

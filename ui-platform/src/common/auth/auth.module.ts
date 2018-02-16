@@ -6,6 +6,7 @@ import {ApiService} from '../api/api.service';
 import {AuthComponent} from './auth.component';
 import {LoginComponent} from './login/login.component';
 import { FormsModule } from '@angular/forms'
+import TokenLocalStorageService from "./token/token-session-storage";
 
 @NgModule({
   imports: [
@@ -16,8 +17,9 @@ import { FormsModule } from '@angular/forms'
   declarations: [ AuthComponent, LoginComponent ],
   exports: [ AuthComponent ],
   providers: [
+    ApiService,
     AuthService,
-    ApiService
+    TokenLocalStorageService,
   ],
 })
 export class AuthModule { }

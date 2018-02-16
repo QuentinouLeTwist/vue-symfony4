@@ -1,0 +1,28 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row *ngIf="authService.isAuthenticated()">
+        <button mat-icon-button routerLink="platform">
+            <mat-icon>home</mat-icon>
+        </button>
+        <button mat-button routerLink="platform/users">
+            <mat-icon>group</mat-icon>
+            Users
+        </button>
+        <button mat-button routerLink="platform/clients">
+            <mat-icon>business_center</mat-icon>
+            Clients
+        </button>
+        <button mat-button routerLink="platform/solutions">
+            <mat-icon>widgets</mat-icon>
+            <span>Solutions</span>
+        </button>
+        <span class="spacer"></span>
+        <button-image
+            srcUrl="https://pbs.twimg.com/profile_images/2322538187/2ci9q833rns855ctv8nd_400x400.jpeg"
+            buttonText="{{ user.name }}"
+            route="platform">
+        </button-image>
+    </mat-toolbar-row>
+    <mat-toolbar-row *ngIf="!authService.isAuthenticated()">
+        <button mat-button routerLink="/login">Login</button>
+    </mat-toolbar-row>
+</mat-toolbar>

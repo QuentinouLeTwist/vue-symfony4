@@ -1,0 +1,6 @@
+<button mat-button *ngIf="route !== ''" routerLink="{{ route }}" (click)="onClick()">
+    <img class="bubble-image" src="{{ srcUrl }}"/>&nbsp; {{ buttonText }}
+</button>
+<button mat-button *ngIf="route === undefined" (click)="onClick()">
+    <img class="bubble-image" src="{{ srcUrl }}"/>&nbsp; {{ buttonText }}
+</button>
