@@ -24,24 +24,13 @@ class UserController extends Controller
     {
         return JsonResponse::create($this->getUser()->toArray())->setStatusCode(200);
     }
-
     /**
-     * @Route("/api/user/test/{id}", name="get_user_by_id", requirements={"id" = "\d+"})
-     * @Method({"GET", "POST", "PATCH"})
+     * @Route("/api/user/all", name="get_all_users")
+     * @Method({"GET"})
      */
-    public function update($id, Request $request, UserRepository $repository, UserPasswordEncoderInterface $passwordEncoder)
+    public function findAll(UserRepository $userRepository)
     {
-        if ($request->getMethod() === 'GET') {
-            return JsonResponse::create($repository->findById($id))->setStatusCode(200);
-        }
-
-        if ($request->getMethod() === 'PATCH') {
-            return $this->patchUser($id, $request, $passwordEncoder);
-        }
-
-        if ($request->getMethod() === 'POST') {
-            return $this->createUser($request, $passwordEncoder);
-        }
+        return JsonResponse::create($userRepository->findAll())->setStatusCode(200);
     }
 
     /**
@@ -52,39 +41,6 @@ class UserController extends Controller
     {
         return $this->createUser($request, $passwordEncoder);
 
-    }
-
-    /**
-     * @param $id
-     * @param Request $request
-     * @param UserPasswordEncoderInterface $passwordEncoder
-     *
-     * @return Response
-     */
-    private function patchUser($id, Request $request, UserPasswordEncoderInterface $passwordEncoder): Response
-    {
-        $content = json_decode($request->getContent(), true);
-
-        $em = $this->getDoctrine()->getManager();
-        $user = $em->getRepository(User::class)->find($id);
-
-        if (!empty($content['data']['username'])) {
-            $user->setUsername($content['data']['username']);
-        }
-        if (!empty($content['data']['email'])) {
-            $user->setEmail($content['data']['email']);
-        }
-        if (!empty($content['data']['password'])) {
-            $user->setPassword($passwordEncoder->encodePassword($user, $content['data']['password']));
-        }
-
-        $em->flush();
-
-        return JsonResponse::create([
-            'data' => [
-                'message' => 'resource successfully updated'
-            ]
-        ]);
     }
 
     /**
