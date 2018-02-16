@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {UserCredential} from '../user/user-credential';
+import {UserCredential} from '../credential/user-credential';
+import {AuthenticationEventEmitter} from "../event/authentication-event-emitter.service";
 
 @Component({
   selector: 'app-auth-login',
@@ -11,7 +12,6 @@ export class LoginComponent implements OnInit {
   @Output() onLogin = new EventEmitter<boolean>();
 
   login() {
-    console.log('emitting login event');
     this.onLogin.emit();
   }
 

@@ -1,0 +1,26 @@
+.quick-access-card {
+    max-width: 400px;
+}
+
+.header-users {
+    background-image: url('http://www.freeiconspng.com/uploads/customers-icon-3.png');
+    background-size: cover;
+}
+
+.header-clients {
+    background-image: url('https://www.maargasystems.com/wp-content/uploads/2016/09/icon_governance.png');
+    background-size: cover;
+}
+
+button {
+    font-weight: bold;
+    font-family: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.mat-card {
+    font-family: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.mat-card-title {
+    text-align: left;
+}

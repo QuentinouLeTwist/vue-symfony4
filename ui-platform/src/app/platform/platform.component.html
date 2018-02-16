@@ -1,0 +1,23 @@
+<div fxLayout="row">
+    <div fxFlex="45">
+        <card-quick-access
+            title="Users"
+            alias="users"
+            description="Involve your team members now by adding new users."
+            buttonText="CREATE"
+            cssClassAvatar="users"
+            (buttonClicked)="goTo($event)"
+        ></card-quick-access>
+    </div>
+    <div fxFlex="5"></div>
+    <div fxFlex="45">
+        <card-quick-access
+            title="Clients"
+            alias="clients"
+            description="Add new clients, set user roles and enable solutions."
+            buttonText="CREATE"
+            cssClassAvatar="clients"
+            (buttonClicked)="goTo($event)"
+        ></card-quick-access>
+    </div>
+</div>

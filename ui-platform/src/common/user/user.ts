@@ -1,9 +1,5 @@
 export class User {
-  constructor(private _id?: number, private _name?: string, private _email?: string, private _token?: string) {
-    if (_token === undefined) {
-      this._token = '';
-    }
-  }
+  constructor(private _id?: number, private _name?: string, private _email?: string, private _isAuthenticated?: boolean) {}
 
   public get id (): number {
     return this._id;
@@ -15,10 +11,6 @@ export class User {
 
   public get email (): string {
     return this._email;
-  }
-
-  public get token (): string {
-    return this._token;
   }
 
   public set id(value: number) {
@@ -33,11 +25,7 @@ export class User {
     this._email = value;
   }
 
-  public set token(value: string) {
-    this._token = value;
-  }
-
   isAuthenticated() {
-    return this._token !== '';
+    return this._isAuthenticated === true;
   }
 }

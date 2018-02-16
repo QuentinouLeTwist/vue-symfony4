@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ApiService } from '../api/api.service';
 import { AuthService } from '../auth/auth.service';
+import {UserEventEmitter} from "./event/user-event-emitter";
 
 @NgModule({
   imports: [
@@ -10,7 +11,7 @@ import { AuthService } from '../auth/auth.service';
   declarations: [],
   providers: [
     ApiService,
-    AuthService,
+    UserEventEmitter,
   ]
 })
 export class UserModule { }
